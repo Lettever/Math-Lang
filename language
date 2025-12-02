@@ -1,0 +1,3 @@
+ident = \w+
+number = [+-]?\d+(:?.?\d+)?(:?[+-]?[eE]\d+)?
+value = ident | number | "(" value ")" | value [+-*/] value
