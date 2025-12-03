@@ -8,6 +8,8 @@ enum TokenType
     Ident
     Num
     Error
+    NewLine
+    Equal
 end
 
 record Token, type : TokenType, span : String, pos : LexerPosition
@@ -19,4 +21,6 @@ TOKEN_MAP = {
     '/' => TokenType::Divide,
     '(' => TokenType::Left_Paran,
     ')' => TokenType::Right_Paran,
+    '\n' => TokenType::NewLine,
+    '=' => TokenType::Equal,
 }

@@ -57,6 +57,14 @@ class Lexer
         if TOKEN_MAP.has_key?(ch)
             token = Token.new(TOKEN_MAP[ch], ch.to_s(), LexerPosition.new(@pos))
             @pos.advance(ch)
+        elsif ch.ascii_whitespace?
+            @pos.advance(ch)
+            i = 0
+            while (ch = peek(i)).ascii_whitespace? && ch != '\n'
+                @pos.advance(ch)
+                i += 1
+            end
+            return self.next()
         elsif ch.ascii_letter?
             span = ch.to_s()
             while (ch = peek(span.size)).ascii_alphanumeric?

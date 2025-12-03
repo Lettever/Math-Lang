@@ -4,9 +4,7 @@ content : String = File.read("./example.txt")
 lexer = Lexer.new(content)
 
 while f = lexer.next()
-    if f.type == TokenType::Num || f.type == TokenType::Ident
-        puts f
-    end
+    puts f
 end
 
 #chars : Iterator(Char) = content.each_char
