@@ -3,7 +3,7 @@ class LexerPosition
     getter line
     getter i
 
-    def initialize
+    def initialize()
         @column = 0
         @line = 1
         @i = 0  

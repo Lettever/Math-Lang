@@ -1,3 +1,6 @@
-ident = \w+
-number = [+-]?\d+(:?.?\d+)?(:?[+-]?[eE]\d+)?
-value = ident | number | "(" value ")" | value [+-*/] value
+ident ::= \w[\d\w]*
+number ::= \d+(\.\d+)?([eE][+-]?\d+)?
+stmt ::= (value '=')? expr
+expr ::= ident | unaryOp number | value binaryOp value | '(' value ')'
+unaryOp ::= '+' | '-'
+binaryOp ::= '+' | '-' | '*' | '/'
