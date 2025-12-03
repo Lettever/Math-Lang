@@ -1,6 +1,8 @@
+program ::= stmt+
+stmt ::= (ident '=')? expr
+expr ::= term ([+-] term)*
+term ::= factor ([*/] factor)*
+factor ::= number | ident | unaryOp factor | '(' expr ')'
+unaryOp ::= '+' | '-'
 ident ::= \w[\d\w]*
 number ::= \d+(\.\d+)?([eE][+-]?\d+)?
-stmt ::= (value '=')? expr
-expr ::= ident | unaryOp number | value binaryOp value | '(' value ')'
-unaryOp ::= '+' | '-'
-binaryOp ::= '+' | '-' | '*' | '/'
