@@ -10,13 +10,21 @@ class Lexer
         @input = input
     end
 
-    def peek(n : Int) : Char 
+    def peek(n : Int) : Char
         if @pos.i + n >= @input.size
             return '\0'
         end
         return @input[@pos.i + n]
     end
 
+    def collect() : Array(Token)
+        res : Array(Token)
+        while f = self.next()
+            res << f
+        end
+        return res
+    end
+    
     def next() : Token | Nil
         if @pos.i >= @input.size
             return nil
